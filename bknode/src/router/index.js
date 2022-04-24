@@ -23,7 +23,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: 'test', //window.PROJECT_CONFIG.SITE_URL,
+    path: window.PROJECT_CONFIG.SITE_URL,
     name: 'appMain',
     component: MainEntry,
     alias: '',
