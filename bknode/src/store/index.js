@@ -71,6 +71,7 @@ const store = new Vuex.Store({
       // const url = `${loginUrl}api/v3/is_login/?bk_token=${cookies.bk_token}`;
       const url = '/user';
       return http.get(url).then((response) => {
+        console.log(response, 'responseresponseresponse', '....')
         const userData = response.data || {};
         context.commit('updateUser', userData);
         return userData;

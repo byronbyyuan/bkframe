@@ -37,7 +37,7 @@ const GLOBAL_VAR = {
   // APP CODE
   BKPAAS_APP_ID: process.env.BKPAAS_APP_ID || '',
   BKPAAS_APP_SECRET: process.env.BKPAAS_APP_SECRET || '',
-  BK_LOGIN_URL: process.env.BK_LOGIN_URL || '',
+  BK_LOGIN_URL: process.env.BK_LOGIN_URL || '/',
 };
 
 
@@ -66,6 +66,7 @@ app.use(history({
 
 // 首页
 app.get('/', (req, res) => {
+  console.log('asdadsdss')
   const scriptName = (req.headers['x-script-name'] || '').replace(/\//g, '');
   // 使用子路径
   if (scriptName) {

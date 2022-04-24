@@ -21,6 +21,7 @@ Vue.component('AppAuth', AuthComponent);
 
 auth.requestCurrentUser().then((user) => {
   injectCSRFTokenToHeaders();
+  console.log('22')
   if (user.isAuthenticated) {
     global.bus = bus;
     global.mainComponent = new Vue({
@@ -31,10 +32,12 @@ auth.requestCurrentUser().then((user) => {
       template: '<App/>',
     });
   } else {
+    console.log('redirectToLogin')
     auth.redirectToLogin();
   }
 }, (err) => {
   let message;
+  console.log('Sorry，您的权限不足')
   if (err.status === 403) {
     message = 'Sorry，您的权限不足!';
     if (err.data && err.data.msg) {
